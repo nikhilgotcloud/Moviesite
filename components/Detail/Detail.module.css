@@ -1,0 +1,32 @@
+
+.title{
+    margin-top: 10%;
+    
+}
+.parameter{
+    color: blue;
+   
+}
+.topic{
+    margin-top: 2%;
+    margin-left: -2%;
+}
+.right
+{
+    margin-top: 20%;
+}
+
+@media only screen and (max-width: 768px){
+    .right{
+     
+     margin-top: 10rem;
+    
+    }
+   .topic{
+    margin-top: 20%;
+   }
+   .title{
+    margin-top: 50%;
+   }
+    
+ }
