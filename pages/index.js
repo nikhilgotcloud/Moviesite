@@ -8,6 +8,7 @@ import Header from "../components/Header/Header";
 import HomeMovie from "@/components/Home/HomeMovie";
 import HomeSeries from "@/components/Home/HomeSeries";
 import styles from "./index.module.css"
+import Detail from "@/components/Detail/Detail";
 
 
 

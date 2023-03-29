@@ -39,13 +39,13 @@ const Detail = () => {
         <div className="row">
           <div className="col-8">
         <div className={`${styles.left} ms-4 `}>
-        <h2 className={`${styles.title} text-left  title`} >{movie.Title}</h2>
+        <h2 className={`${styles.title} text-left`} >{movie.Title}</h2>
 
         
         <div className={`${styles.topic} d-flex flex-row  `}>
-          <div className="py-lg-2 "><p><b className={`${styles.parameter} ms-4`}>IMDB Rating : </b><i className="bi bi-star-fill"> {movie.imdbRating}</i></p></div>
-          <div className="p-lg-2 px-4"><p><b className={`${styles.parameter} `}>Runtime : </b><i className="bi bi-camera-reels"> {movie.Runtime}</i></p></div>
-          <div className="p-lg-2 px-lg-4 "><p><b className={`${styles.parameter} `}>Year : </b><i className="bi bi-calendar2-week"> {movie.Year}</i></p></div>
+          <div className="py-lg-2 "><p><b className={`${styles.parameter} ms-4`}>IMDB Rating : </b><i className="bi bi-star-fill text-dark"> {movie.imdbRating}</i></p></div>
+          <div className="p-lg-2 px-4"><p><b className={`${styles.parameter} `}>Runtime : </b><i className="bi bi-camera-reels text-dark"> {movie.Runtime}</i></p></div>
+          <div className="p-lg-2 px-lg-4 "><p><b className={`${styles.parameter} `}>Year : </b><i className="bi bi-calendar2-week text-dark"> {movie.Year}</i></p></div>
         </div>
         
        
