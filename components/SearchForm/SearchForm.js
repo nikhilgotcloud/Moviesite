@@ -11,6 +11,9 @@ const SearchForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!searchTerm.trim()) {
+      return; // Do nothing if search term is empty or contains only whitespace
+    }
     dispatch(setSearch(searchTerm));
     dispatch(fetchMovies(searchTerm));
     dispatch(fetchSeries(searchTerm));

@@ -8,6 +8,8 @@ function HomeSeries() {
   const [series, setSeries] = useState([]);
   const {search} = useSelector((state) => state.movies);
 
+
+
   const [selectedMovieId, setSelectedMovieId] = useState(null);
   // console.log(search);
   const router = useRouter();
@@ -29,6 +31,9 @@ function HomeSeries() {
 
   useEffect(() => {
    if(search){fetchData(search);}
+  //  else {
+  //   fetchData();
+  // }
     
   }, [search]);
 
@@ -62,7 +67,7 @@ function HomeSeries() {
           <div className="movie-card  border border-warning rounded m-2 shadow bg-white p-2 ">
           <img src={series.Poster} alt={`${series.Title} poster - Image not available` } width={200} height={200}  className=" ms-5 mt-2"/>
             <div className="movie-details">
-              <h5>{series.Title}</h5>
+              <h5>{series.Title.slice(0,30)}</h5>
               <p><b>Year :</b> {series.Year}</p>
               <button type="button " className="btn btn-warning ms-5 ps-3 pe-3 "onClick={() => handleMovieClick(series.imdbID)}>View Details</button>
             </div>

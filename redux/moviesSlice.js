@@ -14,10 +14,12 @@ const moviesSlice = createSlice({
   name: 'movies',
   initialState: {
     search: '',
+    
     data: [],
     loading: false,
     error: null,
   },
+  
   reducers: {
     setSearch(state, action) {
       state.search = action.payload;
