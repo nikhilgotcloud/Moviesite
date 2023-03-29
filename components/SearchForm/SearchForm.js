@@ -15,8 +15,8 @@ const SearchForm = () => {
       return; // Do nothing if search term is empty or contains only whitespace
     }
     dispatch(setSearch(searchTerm));
-    dispatch(fetchMovies(searchTerm));
-    dispatch(fetchSeries(searchTerm));
+    // dispatch(fetchMovies(searchTerm));
+    // dispatch(fetchSeries(searchTerm));
     // console.log("aa gya");
   };
 

@@ -26,7 +26,7 @@ function Home() {
 
     const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=d946fac1&type=movie`);
     const data = await response.json();
-    console.log(data, "dddd")
+    // console.log(data, "dddd")
     // if (data?.Search) {
     setMovies(data.Search);
     // } else 
