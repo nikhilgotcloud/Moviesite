@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from "next/router";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -10,6 +10,35 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const { search } = useSelector((state) => state.movies);
   const [selectedMovieId, setSelectedMovieId] = useState(null);
+
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsIntersecting(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px 100px 0px' } // to start load image 100px before they are in viewport
+    );
+
+    if (containerRef.current) {
+      const images = containerRef.current.querySelectorAll('img');
+      images.forEach((img) => {
+        observer.observe(img);
+      });
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [containerRef]);
+
 
   // const [fetched, setFetched] = useState(false);
   // console.log(search);
@@ -103,7 +132,7 @@ function Home() {
       {movies.map(movies => (
         <SplideSlide key={movies.imdbID}>
           <div className="movie-card  border border-primary rounded m-2 mt-md-3 shadow bg-white p-2 ">
-            <img src={movies.Poster} alt={`${movies.Title} poster - Image not available`} width={200} height={200} className=" ms-5 mt-2" />
+            <img src={movies.Poster} alt={`${movies.Title} poster - Image not available`} width={200} height={200} className=" ms-5 mt-2" loading="lazy" />
             <div className="movie-details">
               <h5>{movies.Title.slice(0, 30)}</h5>
               <p><b>Year :</b>  {movies.Year}</p>

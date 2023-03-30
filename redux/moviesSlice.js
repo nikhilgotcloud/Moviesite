@@ -42,6 +42,7 @@ const moviesSlice = createSlice({
         state.loading = false;
         state.data = [];
         state.error = action.payload || 'An error occurred while fetching movies';
+        console.log("rejected ")
       })
       ;
   },
